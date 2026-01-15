@@ -14,12 +14,12 @@ export class Triangle implements Figure {
 
   constructor(
     public color: Color,
-    private a: number = 0,
-    private b: number = 0,
-    private c: number = 0,
+    private a: number,
+    private b: number,
+    private c: number,
   ) {
     if (a <= 0 || b <= 0 || c <= 0) {
-      throw new Error('Value cannot be negative');
+      throw new Error('All sides of a triangle must be positive numbers.');
     }
 
     if (
@@ -35,7 +35,7 @@ export class Triangle implements Figure {
     const p: number = (this.a + this.b + this.c) * 0.5;
     const s: number = Math.sqrt(p * (p - this.a) * (p - this.b) * (p - this.c));
 
-    return Math.round(s * 100) / 100;
+    return Math.floor(s * 100) / 100;
   }
 }
 
@@ -44,10 +44,10 @@ export class Circle implements Figure {
 
   constructor(
     public color: Color,
-    public radius: number = 0,
+    public radius: number,
   ) {
     if (radius <= 0) {
-      throw new Error('Value cannot be negative');
+      throw new Error('The radius must be a positive number.');
     }
   }
 
@@ -63,18 +63,18 @@ export class Rectangle implements Figure {
 
   constructor(
     public color: Color,
-    public width: number = 0,
-    public height: number = 0,
+    public width: number,
+    public height: number,
   ) {
     if (width <= 0 || height <= 0) {
-      throw new Error('Value cannot be negative');
+      throw new Error('Width and height must be positive numbers');
     }
   }
 
   getArea(): number {
     const s: number = this.width * this.height;
 
-    return Math.round(s * 100) / 100;
+    return Math.floor(s * 100) / 100;
   }
 }
 
