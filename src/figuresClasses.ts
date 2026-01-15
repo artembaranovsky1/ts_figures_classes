@@ -27,7 +27,9 @@ export class Triangle implements Figure {
       this.b + this.c <= this.a ||
       this.a + this.c <= this.b
     ) {
-      throw new Error('Invalid triangle sides');
+      throw new Error(
+        'The sum of any two sides must be greater than the third',
+      );
     }
   }
 
@@ -78,6 +80,6 @@ export class Rectangle implements Figure {
   }
 }
 
-export function getInfo(figure): string {
+export function getInfo(figure: Figure): string {
   return `A ${figure.color} ${figure.shape} - ${figure.getArea()}`;
 }
